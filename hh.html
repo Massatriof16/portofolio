@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #1f2937;
+      margin: 0 0 15px;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInUp 0.8s forwards;
+    }
+    p {
+      max-width: 600px;
+      color: #4b5563;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s 0.3s forwards;
+    }
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeIn 0.8s 0.6s forwards;
+    }
+    a.btn {
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+    a.btn-primary {
+      background: #2563eb;
+      color: white;
+    }
+    a.btn-primary:hover { background: #1d4ed8; }
+    a.btn-outline {
+      border: 1px solid #9ca3af;
+      color: #374151;
+    }
+    a.btn-outline:hover { background: #f3f4f6; }@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+   .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.5); 
+    justify-content: center; 
+    align-items: center;
+  }
+  .modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+    animation: fadeIn 0.3s;
+  }
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .social-links a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #2563eb;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  .social-links a:hover {
+    color: #1d4ed8;
+  }
+  .foto {
+  width:160px;height:160px;border-radius:50%;
+  box-shadow:0 10px 20px rgba(0,0,0,0.15);
+  margin-bottom:20px;
+  transform:scale(0);
+  animation:popIn 0.8s forwards ease-in-out;"
+  }
+  </style>
+</head>
+<body>
+ <img id="foto" src="dimas.jpg" alt="Foto Profil" >
+            
+  <h1>Halo, Saya Dimas Seto Satrio</h1>
+  <p>
+    Saya Gemar terhadap software engineering. Saya memiliki keterikatan dengan pembuatan atau pengembangan atau building software seperti kernel, Custom recovery, custom ROM. saya juga tertarik terhadap eksploit BootRom device yang menggunakan chipset unisoc. Selain itu juga bisa dalam memperbaiki Hp dari software dan hardware.
+  </p>
+<!-- Tombol Kontak -->
+<div class="btn-group">
+  <a href="https://massatriof16.github.io/recovery-collections" class="btn btn-primary">Lihat Projek</a>
+  <a href="javascript:void(0)" class="btn btn-primary" onclick="toggleModal()">Kontak Saya</a>
+</div>
+
+<!-- Modal Kontak -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="toggleModal()">&times;</span>
+    <h2>Hubungi Saya</h2>
+    <div class="social-links">
+      <a href="https://instagram.com/massatrio_16" target="_blank">📸 Instagram</a>
+      <a href="https://wa.me/6282276388906" target="_blank">💬 WhatsApp</a>
+      <a href="https://t.me/Dimsss0998" target="_blank">✈️ Telegram</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+</body>
+<script>
+  function toggleModal() {
+    const modal = document.getElementById('contactModal');
+    modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+  }
+  </script>
+
+</html>
