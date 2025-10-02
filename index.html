@@ -167,32 +167,56 @@
   font-size: 0.95rem;
   color: #374151;
 }
+
+.skills {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+}
+.skills img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s;
+}
+.skills img:hover {
+  transform: scale(1.2);
+}
+
 .menu-toggle {
   position: fixed;
   top: 15px;
   left: 15px;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
-  user-select: none;
+  z-index: 1001;
 }
-.menu {
-  display: none;
+
+.side-menu {
   position: fixed;
-  top: 50px;
-  left: 15px;
+  top: 0;
+  left: -250px; /* awalnya tersembunyi */
+  width: 250px;
+  height: 100%;
   background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  transition: left 0.3s ease;
+  z-index: 1000;
 }
-.menu a {
-  display: block;
-  padding: 8px 12px;
-  color: #374151;
+
+.side-menu a {
+  padding: 15px 20px;
   text-decoration: none;
+  color: #374151;
+  font-size: 1.1rem;
 }
-.menu a:hover {
+.side-menu a:hover {
   background: #f3f4f6;
+}
+.side-menu.open {
+  left: 0; /* muncul geser ke kanan */
 }
   </style>
 </head>
@@ -206,13 +230,13 @@
     <p>
     Saya Gemar terhadap software engineering. Saya memiliki keterikatan dengan pembuatan atau pengembangan atau building software seperti kernel, Custom recovery, custom ROM. saya juga tertarik terhadap eksploit BootRom device yang menggunakan chipset unisoc. Selain itu juga bisa dalam memperbaiki Hp dari software dan hardware.
   </p>  
-  </div>  <!-- Card Bahasa Pemrograman -->  <div class="card">
-    <h2>Bahasa yang Saya Pelajari</h2>
-    <ul>
-      <li>🐍 Python</li>
-      <li>💻 C</li>
-    </ul>
-  </div>  <!-- Modal Kontak -->  <div class="card">
+  </div>  <!-- Card Bahasa Pemrograman -->  <div class="card" id="skills">
+  <h2>Bahasa yang Saya Pelajari</h2>
+  <div class="skills">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C Language" />
+  </div>
+</div>  <!-- Modal Kontak -->  <div class="card">
   <h2>Kontak Saya</h2>
   <ul>
     <li>📸 <a href="https://instagram.com/massatrio_16" target="_blank">Instagram</a></li>
@@ -221,19 +245,18 @@
   </ul>
 </div>
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-<nav id="menu" class="menu">
+<div id="sideMenu" class="side-menu">
   <a href="#about">Tentang Saya</a>
   <a href="#skills">Bahasa</a>
   <a href="#contact">Kontak</a>
-</nav>
+</div>
 <script>
   function toggleModal() {
     const modal = document.getElementById('contactModal');
     modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
   }
   function toggleMenu() {
-  const menu = document.getElementById('menu');
-  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+  document.getElementById('sideMenu').classList.toggle('open');
 }
 </script></body>
 </html>
