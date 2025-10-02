@@ -5,19 +5,8 @@
   <title>Portofolio</title>
   <style>
     @keyframes popIn {
-  to {
-    transform: scale(1);
-  }
-}
-      .profile-img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-      margin-bottom: 20px;
-      transform: scale(0);
-      animation: popIn 0.8s forwards ease-in-out;
-           }
+      to { transform: scale(1); }
+    }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -25,10 +14,19 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
       text-align: center;
       padding: 20px;
+    }
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      margin-bottom: 20px;
+      transform: scale(0);
+      animation: popIn 0.8s forwards ease-in-out;
     }
     h1 {
       font-size: 2.5rem;
@@ -54,8 +52,8 @@
       justify-content: center;
       opacity: 0;
       animation: fadeIn 0.8s 0.6s forwards;
+      margin-bottom: 40px;
     }
-
     a.btn {
       padding: 10px 20px;
       border-radius: 25px;
@@ -73,104 +71,125 @@
       color: #374151;
     }
     a.btn-outline:hover { background: #f3f4f6; }@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+@keyframes fadeIn { to { opacity: 1; } }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
 }
-   .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 999; 
-    left: 0; 
-    top: 0; 
-    width: 100%; 
-    height: 100%; 
-    background: rgba(0,0,0,0.5); 
-    justify-content: center; 
-    align-items: center;
-  }
-  .modal-content {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    width: 300px;
-    animation: fadeIn 0.3s;
-  }
-  .close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  .social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
-  }
-  .social-links a {
-    text-decoration: none;
-    font-size: 1.1rem;
-    color: #2563eb;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-  .social-links a:hover {
-    color: #1d4ed8;
-  }
-  .foto {
-  width:160px;height:160px;border-radius:50%;
-  box-shadow:0 10px 20px rgba(0,0,0,0.15);
-  margin-bottom:20px;
-  transform:scale(0);
-  animation:popIn 0.8s forwards ease-in-out;"
-  }
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  width: 300px;
+  animation: fadeIn 0.3s;
+  position: relative;
+}
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+.social-links a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #2563eb;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.social-links a:hover { color: #1d4ed8; }
+
+/* Card Style */
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  animation: fadeInUp 0.8s forwards;
+}
+.card h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #1f2937;
+}
+.card p {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  color: #4b5563;
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+.card ul li {
+  background: #f3f4f6;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
   </style>
 </head>
 <body>
- <img src="image/dimas.jpg" alt="Foto Profil" class="profile-img" >
-            
-  <h1>Halo, Saya Dimas Seto Satrio</h1>
+ <img src="image/dimas.jpg" alt="Foto Profil" class="profile-img" >  <h1>Halo, Saya Dimas Seto Satrio</h1>
   <p>
     Saya Gemar terhadap software engineering. Saya memiliki keterikatan dengan pembuatan atau pengembangan atau building software seperti kernel, Custom recovery, custom ROM. saya juga tertarik terhadap eksploit BootRom device yang menggunakan chipset unisoc. Selain itu juga bisa dalam memperbaiki Hp dari software dan hardware.
-  </p>
-<!-- Tombol Kontak -->
-<div class="btn-group">
-  <a href="https://massatriof16.github.io/recovery-collections" class="btn btn-primary">Lihat Projek</a>
-  <a href="javascript:void(0)" class="btn btn-primary" onclick="toggleModal()">Kontak Saya</a>
-</div>
-
-<!-- Modal Kontak -->
-<div id="contactModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="toggleModal()">&times;</span>
-    <h2>Hubungi Saya</h2>
-    <div class="social-links">
-      <a href="https://instagram.com/massatrio_16" target="_blank">📸 Instagram</a>
-      <a href="https://wa.me/6282276388906" target="_blank">💬 WhatsApp</a>
-      <a href="https://t.me/Dimsss0998" target="_blank">✈️ Telegram</a>
+  </p>  <!-- Tombol Kontak -->  <div class="btn-group">
+    <a href="https://massatriof16.github.io/recovery-collections" class="btn btn-primary">Lihat Projek</a>
+    <a href="javascript:void(0)" class="btn btn-primary" onclick="toggleModal()">Kontak Saya</a>
+  </div>  <!-- Card Tentang Saya -->  <div class="card">
+    <h2>Tentang Saya</h2>
+    <p>
+      Saya seorang penulis sekaligus software enthusiast. Aktif mengembangkan TWRP, custom kernel, custom ROM, serta mempelajari eksploitasi BootROM khususnya pada chipset Unisoc.
+    </p>
+  </div>  <!-- Card Bahasa Pemrograman -->  <div class="card">
+    <h2>Bahasa yang Saya Pelajari</h2>
+    <ul>
+      <li>🐍 Python</li>
+      <li>💻 C</li>
+    </ul>
+  </div>  <!-- Modal Kontak -->  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="toggleModal()">&times;</span>
+      <h2>Hubungi Saya</h2>
+      <div class="social-links">
+        <a href="https://instagram.com/massatrio_16" target="_blank">📸 Instagram</a>
+        <a href="https://wa.me/6282276388906" target="_blank">💬 WhatsApp</a>
+        <a href="https://t.me/Dimsss0998" target="_blank">✈️ Telegram</a>
+      </div>
     </div>
-  </div>
-</div>
-
-
-
-
-
-</body>
-<script>
+  </div><script>
   function toggleModal() {
     const modal = document.getElementById('contactModal');
     modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
   }
-  </script>
-
+</script></body>
 </html>
