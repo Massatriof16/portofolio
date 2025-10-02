@@ -73,7 +73,18 @@
     a.btn-outline:hover { background: #f3f4f6; }@keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes fadeIn { to { opacity: 1; } }
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 .modal {
   display: none;
@@ -128,6 +139,7 @@
   margin: 20px auto;
   text-align: left;
   animation: fadeInUp 0.8s forwards;
+  animation: slideUp 0.8s ease forwards;
 }
 .card h2 {
   margin-top: 0;
@@ -155,41 +167,73 @@
   font-size: 0.95rem;
   color: #374151;
 }
-
+.menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+}
+.menu {
+  display: none;
+  position: fixed;
+  top: 50px;
+  left: 15px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+.menu a {
+  display: block;
+  padding: 8px 12px;
+  color: #374151;
+  text-decoration: none;
+}
+.menu a:hover {
+  background: #f3f4f6;
+}
   </style>
 </head>
 <body>
  <img src="image/dimas.jpg" alt="Foto Profil" class="profile-img" >  <h1>Halo, Saya Dimas Seto Satrio</h1>
-  <p>
-    Saya Gemar terhadap software engineering. Saya memiliki keterikatan dengan pembuatan atau pengembangan atau building software seperti kernel, Custom recovery, custom ROM. saya juga tertarik terhadap eksploit BootRom device yang menggunakan chipset unisoc. Selain itu juga bisa dalam memperbaiki Hp dari software dan hardware.
-  </p>  <!-- Tombol Kontak -->  <div class="btn-group">
+  <!-- Tombol Kontak -->  <div class="btn-group">
     <a href="https://massatriof16.github.io/recovery-collections" class="btn btn-primary">Lihat Projek</a>
     <a href="javascript:void(0)" class="btn btn-primary" onclick="toggleModal()">Kontak Saya</a>
   </div>  <!-- Card Tentang Saya -->  <div class="card">
     <h2>Tentang Saya</h2>
     <p>
-      Saya seorang penulis sekaligus software enthusiast. Aktif mengembangkan TWRP, custom kernel, custom ROM, serta mempelajari eksploitasi BootROM khususnya pada chipset Unisoc.
-    </p>
+    Saya Gemar terhadap software engineering. Saya memiliki keterikatan dengan pembuatan atau pengembangan atau building software seperti kernel, Custom recovery, custom ROM. saya juga tertarik terhadap eksploit BootRom device yang menggunakan chipset unisoc. Selain itu juga bisa dalam memperbaiki Hp dari software dan hardware.
+  </p>  
   </div>  <!-- Card Bahasa Pemrograman -->  <div class="card">
     <h2>Bahasa yang Saya Pelajari</h2>
     <ul>
       <li>🐍 Python</li>
       <li>💻 C</li>
     </ul>
-  </div>  <!-- Modal Kontak -->  <div id="contactModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="toggleModal()">&times;</span>
-      <h2>Hubungi Saya</h2>
-      <div class="social-links">
-        <a href="https://instagram.com/massatrio_16" target="_blank">📸 Instagram</a>
-        <a href="https://wa.me/6282276388906" target="_blank">💬 WhatsApp</a>
-        <a href="https://t.me/Dimsss0998" target="_blank">✈️ Telegram</a>
-      </div>
-    </div>
-  </div><script>
+  </div>  <!-- Modal Kontak -->  <div class="card">
+  <h2>Kontak Saya</h2>
+  <ul>
+    <li>📸 <a href="https://instagram.com/massatrio_16" target="_blank">Instagram</a></li>
+    <li>💬 <a href="https://wa.me/6282276388906" target="_blank">WhatsApp</a></li>
+    <li>✈️ <a href="https://t.me/Dimsss0998" target="_blank">Telegram</a></li>
+  </ul>
+</div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<nav id="menu" class="menu">
+  <a href="#about">Tentang Saya</a>
+  <a href="#skills">Bahasa</a>
+  <a href="#contact">Kontak</a>
+</nav>
+<script>
   function toggleModal() {
     const modal = document.getElementById('contactModal');
     modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
   }
+  function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+}
 </script></body>
 </html>
